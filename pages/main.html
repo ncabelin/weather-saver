@@ -1,0 +1,25 @@
+<div class="container" ng-controller="mainCtrl as main">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 text-center box">
+			<h1 class="text-center">Welcome to WeatherSaver</h1>
+			<div ng-hide="main.show_download">
+				<button ng-click="main.check()" ng-hide="main.temp_checked" class="btn btn-default btn-lg">Check Weather</button>
+				<button ng-click="main.check()" ng-show="main.temp_checked" class="btn btn-default btn-lg">Recheck Weather</button><br>
+				<div ng-show="main.temp_checked">
+					<button ng-click="main.convert()" ng-show="main.fahrenheit" class="btn btn-default btn-xs">Convert to Celsius</button>
+					<button ng-click="main.convert()" ng-hide="main.fahrenheit" class="btn btn-default btn-xs">Convert to Fahrenheit</button>
+				</div><br>
+			</div>
+			<img src="/img/download.gif" class="img-responsive center-block" ng-show="main.show_download">
+			<h3 ng-show="main.show_download" class="light">checking, please wait...</h3>
+
+			<div ng-hide="main.show_download">
+				<div ng-show="main.temp_checked">
+					<h3 class="text-center">{{ main.name }}</h3>
+					<h2 class="text-center">{{ main.temp }}&deg; {{ main.status }}</h2>
+					<h4 class="text-center">{{ main.conditions }}</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
